@@ -7,3 +7,4 @@ This template needs to be adjusted to each target by:
 2) Make the headless browser click & navigate to the correct place
 3) Reading the JS response and extract the `autostarttoken` (or extract it from the DOM)
 
+Use `ngrok` & run it locally. Make sure your phone is not on the same network as the laptop starting the session.
