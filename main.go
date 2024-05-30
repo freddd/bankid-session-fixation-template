@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -38,7 +37,7 @@ func main() {
 		http.Redirect(w, r, "bankid:///?autostarttoken="+tokenValue+"&redirect=null", http.StatusSeeOther)
 	})
 
-	fmt.Printf("Starting server at port 8000\n")
+	log.Printf("Starting server at port 8000\n")
 	if err := http.ListenAndServe(":8000", nil); err != nil {
 		log.Fatal(err)
 	}
@@ -68,7 +67,7 @@ func listenForNetworkEvent(ctx context.Context, channel chan string) {
 						rbp := network.GetResponseBody(ev.RequestID)
 						body, err := rbp.Do(cdp.WithExecutor(ctx, c.Target))
 						if err != nil {
-							fmt.Println(err)
+							log.Fatal(err)
 						}
 						if err = os.WriteFile(ev.RequestID.String(), body, 0644); err != nil {
 							log.Fatal(err)
