@@ -46,7 +46,15 @@ func main() {
 func navigateToBankID(ctx context.Context) {
 	err := chromedp.Run(ctx,
 		chromedp.Navigate(`<URL of BankID page>`),
+
+		// If you need to click a button, you can use chromedp.Click
 		// chromedp.Click(`#login-button`, chromedp.NodeVisible),
+
+		// If you need to run javascript code, you can use Evaluate
+		//chromedp.Evaluate(jsCode, &result, func(p *runtime.EvaluateParams) *runtime.EvaluateParams {
+		//		return p.WithAwaitPromise(true)
+		//})
+
 	)
 	if err != nil {
 		log.Fatal(err)
