@@ -84,4 +84,3 @@ func listenForNetworkEvent(ctx context.Context, channel chan string) {
 		}
 	})
 }
-
